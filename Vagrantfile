@@ -10,8 +10,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "dummy"
   config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
 
-  config.vm.synced_folder ".", "/vagrant", type: "rsync", :rsync_excludes => ['software/']
-
   config.ssh.pty = true
   config.ssh.username = "root"
   config.ssh.private_key_path = ENV['AWS_PRIVATE_KEY_PATH']
@@ -32,10 +30,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         'Ebs.VolumeSize' => 50 
       },
       {
-        "DeviceName": "/dev/xvdk",
-        "Ebs": {
-          "SnapshotId": "snap-85a3e722"
-        }
+        "DeviceName" => "/dev/xvdk",
+        "Ebs.SnapshotId" => "snap-85a3e722"
       }
     ]
   end
