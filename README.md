@@ -89,7 +89,7 @@ You can always go to the EC2 dashboard to look up your instance's public ip.  If
 
 The CRS application is live at: 
 
-http://<your AWS public ip or address>:8080/crs
+`http://<your AWS public ip or address>:8080/crs`
 
 ## Additional Info
 
