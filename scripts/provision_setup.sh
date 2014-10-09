@@ -7,15 +7,6 @@ echo "making sure root volue is the right size"
 resize2fs /dev/xvde1
 echo "resizing done"
 
-# TODO! mount the software EBS at /software
-echo "mounting software drive"
-if [ ! -f /software ]; then
-	mkdir -p /software
-	mount -t ext4 /dev/xvdk /software
-	chmod -R 755 /software
-fi
-echo "software drive mounted"
-
 # swap space
 echo "createing swap space"
 if [ ! -e /var/swap.1 ]; then
@@ -32,11 +23,17 @@ else
 fi
 
 # verify centos release
-cat /etc/centos-release
+if [ -f /etc/centos-release ]; then
+	echo "Converting to Oracle Linux"
+	cat /etc/centos-release
+else
+	echo "Already converted to Oracle Linux"
+fi
 
 # fastestmirror plugin causes problems. just disable plugins
 sed -i.bak 's/plugins=1/plugins=0/g' /etc/yum.conf
 
+# silent install means assume yes for everything
 if  ! grep -qe "^assumeyes" "/etc/yum.conf"; then
 	echo "assumeyes=1" >> /etc/yum.conf
 else
@@ -56,7 +53,7 @@ cat /etc/oracle-release
 yum upgrade -y
 
 # install some tools and libraries that are required
-yum install -y unzip libaio telnet sshpass
+yum install -y unzip libaio telnet
 
 # install the 11g prereqs
 yum install -y oracle-rdbms-server-11gR2-preinstall
@@ -80,6 +77,8 @@ fi
 
 if [ ! -d /home/vagrant ]; then
 	useradd --create-home -s /bin/bash -G oinstall vagrant
+else
+	echo "user vagrant already added"
 fi
 
 if [ ! -f /etc/sudoers.d/vagrant ]; then
@@ -108,7 +107,7 @@ fi
 # jdk
 rpm -Uvh /software/jdk-7u67-linux-x64.rpm
 
-# directories
+# endeca directories
 if [ ! -d /usr/local/endeca/Apps ]; then
 	mkdir -p /usr/local/endeca/Apps
 	chmod -R 755 /usr/local/endeca

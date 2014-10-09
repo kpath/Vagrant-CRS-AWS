@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
     aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
     aws.keypair_name = ENV['AWS_KEYPAIR_NAME']
-    aws.security_groups = ENV['AWS_SECURITY_GROUPS']
+    aws.security_groups = ["ssh-allowed-anywhere"]
     
     aws.instance_type = "m3.xlarge"
     aws.block_device_mapping = [

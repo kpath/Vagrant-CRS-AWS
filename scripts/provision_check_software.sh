@@ -1,18 +1,29 @@
 #!/bin/bash
 # check for the presence of required software
 
+# TODO! mount the software EBS at /software
+echo "mounting software drive"
+if [ ! -e /software ]; then
+	mkdir -p /software
+	mount -t ext4 /dev/xvdk /software
+	chmod -R 755 /software
+fi
+echo "software drive mounted"
+
 echo "Checking for the presence of required third-party software installers ..."
 
 declare -a files=(
-"p13390677_112040_Linux-x86-64_1of7.zip"
-"p13390677_112040_Linux-x86-64_2of7.zip"
-#"jboss-eap-6.1.0.zip"
-#"jdk-7u67-linux-x64.rpm"
-#"OCPlatform11.1.bin"
-#"ojdbc7.jar"
-#"OCcas11.1.0-Linux64.sh"
-#"OCmdex6.5.1-Linux64_829811.sh"
-#"OCplatformservices11.1.0-Linux64.bin"
+	"ojdbc7.jar"
+	"OCReferenceStore11.1.bin"
+	"jboss-eap-6.1.0.zip"
+	"jdk-7u67-linux-x64.rpm"
+	"OCplatformservices11.1.0-Linux64.bin"
+	"OCmdex6.5.1-Linux64_829811.sh"
+	"V46389-01.zip"
+	"OCcas11.1.0-Linux64.sh"
+	"OCPlatform11.1.bin"
+	"p13390677_112040_Linux-x86-64_1of7.zip"
+	"p13390677_112040_Linux-x86-64_2of7.zip"
 )
 
 for file in "${files[@]}"
