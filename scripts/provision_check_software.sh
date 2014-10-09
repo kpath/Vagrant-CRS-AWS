@@ -30,7 +30,7 @@ for file in "${files[@]}"
 do
 	echo "Checking for the presence of $file in the software directory"
 	if [ ! -f /software/$file ]; then
-		echo "ERROR! Missing third-party software: $file."
+		echo "ERROR! Missing third-party software: $file.  Perhaps the software drive wasn't mounted correctly?"
 		exit 1
 	fi
 done
