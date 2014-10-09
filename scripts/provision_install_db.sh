@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # run this part as oracle
-exec sudo -u oracle /bin/sh - << eof
+exec sudo -u oracle /bin/bash -l << eof
 
 	mkdir -p /home/oracle/installers
 

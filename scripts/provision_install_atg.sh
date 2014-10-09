@@ -1,9 +1,6 @@
 
 # do this as vagrant
-exec sudo -u vagrant /bin/sh - << eof
-
-	# make sure we're in a known good place
-	cd /home/vagrant
+exec sudo -u vagrant /bin/bash -l << eof
 
 	# jboss
 	unzip -n /software/jboss-eap-6.1.0.zip -d /home/vagrant

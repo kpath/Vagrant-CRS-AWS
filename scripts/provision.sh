@@ -3,7 +3,7 @@
 
 chmod 750 /vagrant/scripts/*.sh
 
-ALL_PROVISIONERS="software setup db-install db-postinstall netcadbca db-import db-service install-endeca endeca-service install-atg install-crs-artifacts"
+ALL_PROVISIONERS="setup software db-install db-postinstall netcadbca db-import db-service install-endeca endeca-service install-atg install-crs-artifacts"
 
 if [[ $@ ]]; then
     PROVISIONERS=$@
@@ -13,12 +13,12 @@ fi
 
 for p in $PROVISIONERS
 do
-    case "$p" in 
-        software)
-            /vagrant/scripts/provision_get_software.sh
-            ;;
+    case "$p" in         
         setup)
             /vagrant/scripts/provision_setup.sh
+            ;;
+        software)
+            /vagrant/scripts/provision_get_software.sh
             ;;
         db-install)
             /vagrant/scripts/provision_install_db.sh

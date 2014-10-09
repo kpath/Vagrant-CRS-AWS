@@ -4,9 +4,7 @@ unzip -n /vagrant/scripts/crs_artifacts/atg_crs.dmp.zip -d /opt/oracle/admin/orc
 chown oracle:oinstall /opt/oracle/admin/orcl/dpdump/atg_crs.dmp
 
 # do this as oracle
-exec sudo -u oracle /bin/sh - << eof
-	# get the env
-	source /home/oracle/.bash_profile
+exec sudo -u oracle /bin/bash -l << eof
 
 	# run the import
 	impdp system/oracle@orcl schemas=crs_core,crs_pub,crs_cata,crs_catb directory=data_pump_dir dumpfile=atg_crs.dmp logfile=atgdmp.log

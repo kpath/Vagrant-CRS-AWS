@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # chkconfig: 345 99 10
 # description: Oracle auto start-stop script.
 #

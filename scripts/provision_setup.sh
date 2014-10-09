@@ -106,7 +106,7 @@ if  ! grep -qe "^export ENDECA_TOOLS_CONF=" "/home/vagrant/.bash_profile"; then
 fi
 
 # jdk
-rpm -Uvh /vagrant/software/jdk-7u67-linux-x64.rpm
+rpm -Uvh /software/jdk-7u67-linux-x64.rpm
 
 # directories
 if [ ! -d /usr/local/endeca/Apps ]; then

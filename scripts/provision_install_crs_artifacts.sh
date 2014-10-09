@@ -1,10 +1,9 @@
 
 # do this as vagrant
-exec sudo -u vagrant /bin/sh - << eof
-
-	. /home/vagrant/.bash_profile
+exec sudo -u vagrant /bin/bash -l << eof
 
 	# install CRS application artifacts into ATG servers directory and jboss
+	. /home/vagrant/.bash_profile
 
 	# copy jboss application descriptors
 	cp /vagrant/scripts/crs_artifacts/ATGProduction.xml /vagrant/scripts/crs_artifacts/ATGPublishing.xml /home/vagrant/jboss/standalone/configuration
