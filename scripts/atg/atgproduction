@@ -1,0 +1,23 @@
+#!/bin/bash
+# chkconfig: 2345 99 05
+# description: Endeca Platform start-stop script
+
+ENDECA_USER=vagrant
+
+case "$1" in
+    'start')
+
+        if [ -f "/var/lock/subsys/atgproduction" ]
+        then
+            echo "ATG Production already running"
+            exit
+        fi
+
+        su $ENDECA_USER -c "/home/vagrant/scripts/startProduction.sh &> /dev/null &"
+        touch /var/lock/subsys/atgproduction
+        ;;
+    'stop')
+        su $ENDECA_USER -c "/home/vagrant/scripts/stopProduction.sh"
+        rm -f /var/lock/subsys/atgproduction
+        ;;
+esac

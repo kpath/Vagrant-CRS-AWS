@@ -47,8 +47,12 @@ do
         install-crs-artifacts)
             /vagrant/scripts/provision_install_crs_artifacts.sh
             ;;
+        sync)
+            echo "/vagrant directory has been synced"
+            ;;
         *)
             echo "Invalid provisioning arg $p.  Valid args are: $ALL_PROVISIONERS"
+            ;;
     esac
 done
 

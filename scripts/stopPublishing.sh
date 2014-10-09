@@ -1,0 +1,1 @@
+/home/vagrant/jboss/bin/jboss-cli.sh --connect --controller=localhost:10099 command=:shutdown

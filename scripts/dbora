@@ -1,5 +1,5 @@
 #!/bin/bash
-# chkconfig: 345 99 10
+# chkconfig: 345 90 10
 # description: Oracle auto start-stop script.
 #
 # Set ORA_OWNER to the user id of the owner of the 
