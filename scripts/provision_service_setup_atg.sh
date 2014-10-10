@@ -11,9 +11,6 @@ cp /vagrant/scripts/stopPublishing.sh /home/vagrant/scripts
 chmod u+x /home/vagrant/scripts/startPublishing.sh /home/vagrant/scripts/stopPublishing.sh
 chown vagrant.vagrant /home/vagrant/scripts/startPublishing.sh /home/vagrant/scripts/stopPublishing.sh
 
-service atgpublishing stop
-service atgpublishing start
-
 cp /vagrant/scripts/atg/atgproduction /etc/init.d/atgproduction
 chmod 750 /etc/init.d/atgproduction
 chkconfig --add atgproduction
@@ -24,7 +21,7 @@ cp /vagrant/scripts/stopProduction.sh /home/vagrant/scripts
 chmod u+x /home/vagrant/scripts/startProduction.sh /home/vagrant/scripts/stopProduction.sh
 chown vagrant.vagrant /home/vagrant/scripts/startProduction.sh /home/vagrant/scripts/stopProduction.sh
 
-service atgproduction stop
+service atgpublishing start
 service atgproduction start
 
 echo "atg service setup complete"

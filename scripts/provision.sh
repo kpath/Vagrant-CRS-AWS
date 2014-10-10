@@ -3,7 +3,7 @@
 
 chmod 750 /vagrant/scripts/*.sh
 
-ALL_PROVISIONERS="software setup db-install db-postinstall netcadbca db-import db-service install-endeca endeca-service install-atg install-crs-artifacts"
+ALL_PROVISIONERS="software setup db-install db-postinstall netcadbca db-import db-service install-endeca endeca-service install-atg install-crs-artifacts atg-service"
 
 if [[ $@ ]]; then
     PROVISIONERS=$@
@@ -46,6 +46,9 @@ do
             ;;
         install-crs-artifacts)
             /vagrant/scripts/provision_install_crs_artifacts.sh
+            ;;
+        atg-service)
+            /vagrant/scripts/provision_service_setup_atg.sh
             ;;
         sync)
             echo "/vagrant directory has been synced"
