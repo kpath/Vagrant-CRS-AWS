@@ -2,7 +2,7 @@
 
 ## About
 
-This project gives you a quick and easy way to stand up an ATG CRS 11.1 server on Amazon AWS.  This is good for demos and just for playing around with a running instance.  If you have a laptop that can run the ATG CRS locally, you can use the [Turnkey project](https://github.com/grahammather/ATG-CRS-Turnkey) instead.  
+This project gives you a quick and easy way to stand up an ATG CRS 11.1 server on Amazon AWS.  This is good for demos and just for playing around with a running instance.  If you have a laptop that can run the ATG CRS locally, you can use the [Vagrant-CRS project](https://github.com/kpath/Vagrant-CRS) instead.  
 
 ## Assumptions
 
@@ -12,7 +12,7 @@ This project assumes the following:
   - If you don't have this access, you won't be able to get an access key id for provisioning
 - You've created a security group that will allow ssh access from your machine to the provisioned instance.  By default instances do not allow ssh access.
   - If you haven't created this group, then ssh access to your provisioned instance will never become available.
-- You've gathered all of the required software installers listed in Appendix A and put them onto and EBS volume and created a snapshot of said volume
+- You've gathered all of the required software installers listed in [Appendix A](https://github.com/kpath/Vagrant-CRS-AWS#appendix-a---where-to-get-required-software) and put them onto and EBS volume and created a snapshot of said volume
   - If you haven't prepared this volume, the provisioning scripts will fail
 
 ## Setup
@@ -53,7 +53,7 @@ Then launch the instance and provision it with:
 
 This step can take a long time.  It's setting up an Oracle DB, Endeca and Publishing and Production ATG servers.
 
-## Log in as the vagrant user
+## How to log in as the vagrant user
 
 If you haven't already, don't forget to source your environment variables:
 
@@ -87,7 +87,7 @@ Do this from within the Dynamo Admin by following the [docs](http://docs.oracle.
 
 ### Promote the endeca content
 
-Do this from the command line from within the vm.  Ssh to the instance and su to vagrant (see "Log in as the vagrant user") and then type:
+Do this from the command line from within the vm.  Ssh to the instance and su to vagrant (see [How to log in as the vagrant user](https://github.com/kpath/Vagrant-CRS-AWS#log-in-as-the-vagrant-user)) and then type:
 
 `/usr/local/endeca/Apps/CRS/control/promote_content.sh`
 
