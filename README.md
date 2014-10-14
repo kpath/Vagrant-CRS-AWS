@@ -4,6 +4,8 @@
 
 This project gives you a quick and easy way to stand up an ATG CRS 11.1 server on Amazon AWS.  This is good for demos and just for playing around with a running instance.  If you have a laptop that can run the ATG CRS locally, you can use the [Vagrant-CRS project](https://github.com/kpath/Vagrant-CRS) instead.  
 
+If you get lost, you can consult the [ATG CRS Installation and Configuration Guide](http://docs.oracle.com/cd/E52191_01/CRS.11-1/ATGCRSInstall/html) for help.
+
 ## Assumptions
 
 This project assumes the following:
