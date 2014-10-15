@@ -15,7 +15,7 @@ for p in $PROVISIONERS
 do
     case "$p" in
         software)
-            /vagrant/scripts/provision_check_software.sh
+            source /vagrant/scripts/provision_check_software.sh
             ;;     
         setup)
             /vagrant/scripts/provision_setup.sh
